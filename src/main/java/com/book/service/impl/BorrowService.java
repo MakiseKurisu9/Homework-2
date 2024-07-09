@@ -43,7 +43,7 @@ public class BorrowService implements com.book.service.BorrowService {
             BookMapper mapper = sqlSession.getMapper(BookMapper.class);
         return  mapper.getBookList()
                       .stream()
-                //留下不在BorrowList包含的书
+                //留下不在BorrowList的书
                       .filter(book -> !set.contains(book.getBid()))
                       .collect(Collectors.toList());
         }
